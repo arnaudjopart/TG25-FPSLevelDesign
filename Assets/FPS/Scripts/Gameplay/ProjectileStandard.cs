@@ -121,7 +121,7 @@ namespace Unity.FPS.Gameplay
             }
         }
 
-        void Update()
+        void FixedUpdate()
         {
             // Move
             transform.position += m_Velocity * Time.deltaTime;
