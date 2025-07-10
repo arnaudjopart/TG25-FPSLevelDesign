@@ -17,7 +17,7 @@ namespace Unity.FPS.UI
         public GameObject MarkerDirectionPrefab;
 
         Transform m_PlayerTransform;
-        Dictionary<Transform, CompassMarker> m_ElementsDictionnary = new Dictionary<Transform, CompassMarker>();
+        Dictionary<Transform, CompassMarker> m_ElementsDictionnary;
 
         float m_WidthMultiplier;
         float m_HeightOffset;
@@ -82,7 +82,10 @@ namespace Unity.FPS.UI
         public void RegisterCompassElement(Transform element, CompassMarker marker)
         {
             marker.transform.SetParent(CompasRect);
-
+            if (m_ElementsDictionnary == null)
+            {
+                m_ElementsDictionnary = new Dictionary<Transform, CompassMarker>();
+            }
             m_ElementsDictionnary.Add(element, marker);
         }
 
